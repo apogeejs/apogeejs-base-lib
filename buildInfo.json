@@ -1,5 +1,18 @@
 {
-    "filesToCopy": [
+    "repoName": "apogeejs-base-lib",
+    "makeEsModule": true,
+    "esModuleFileName": "apogeeBaseLib.js",
+    "esFilesToCopyUrls": [
+        "/apogeejs-base-lib/versionInfo.json"
+    ],
+    "esExternalLibs": [],
+    "esExternalLibRemapping": {},
+
+    "makeNpmModule": true,
+    "npmModuleFileName": "apogee-base-lib.js",
+    "npmFilesToCopyUrls": [
         "/apogeejs-base-lib/package.json"
-    ]
+    ],
+    "npmExternalLibs": [],
+    "npmExternalLibRemapping": {}
 }
