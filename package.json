@@ -1,12 +1,12 @@
 {
     "DEV_RELEASE": true,
     "name": "apogeejs-base-lib",
-    "version": "2.0.0-p1",
+    "version": "[RELEASE_VERSION]",
     "description": "This library contains some shared basic code between differnt apogeejs repos.",
     "homepage": "https://www.apogeejs.com",
     "license": "MIT",
     "author": "Dave Sutter",
-    "main": "apogeejs-base-lib.js",
+    "main": "./src/apogeejs-base-lib.js",
     "module": "apogeeBaseLib.js",
     "repository": {
         "type": "git",
