@@ -15,7 +15,7 @@ export default class FieldObject {
      */
     constructor(objectType,instanceToCopy,specialCaseIdValue) {
         //this is a (semi-) unique number of each instance (There is no provision for wrapping - so there could be repeats)
-        this.instanceNumber = _getInstanceNumber();
+        this.instanceNumber = _createInstanceNumber();
 
         if(!instanceToCopy) {
             if(specialCaseIdValue) {
@@ -101,6 +101,10 @@ export default class FieldObject {
         return this.objectType;
     }
 
+    getInstanceNumber() {
+        return this.instanceNumber;
+    }
+
     /** This static functions returns the type of an object given the ID. */
     static getTypeFromId(id) {
         let typeEnd = id.indexOf("|");
@@ -117,19 +121,19 @@ export default class FieldObject {
         return id.startsWith(type + "|");
     }
 
-    /** This loads the current field object to have a copy of the data from the given field object.
-     * The update field is however cleared. This method will throw an exception is you try to copy 
-     * into a loacked object. */
-    copyFromFieldsObject(otherFieldObject) {
-        if(this.isLocked) {
-            throw new Error("Attempting to copy fields into a locked object.");
-        }
+    // /** This loads the current field object to have a copy of the data from the given field object.
+    //  * The update field is however cleared. This method will throw an exception is you try to copy 
+    //  * into a locked object. */
+    // copyFromFieldsObject(otherFieldObject) {
+    //     if(this.isLocked) {
+    //         throw new Error("Attempting to copy fields into a locked object.");
+    //     }
 
-        for(name in otherFieldObject.fieldMap) {
-            this.fieldMap[name] = otherFieldObject.fieldMap[name];
-        }
-        this.updated = {};
-    }
+    //     for(let name in otherFieldObject.fieldMap) {
+    //         this.fieldMap[name] = otherFieldObject.fieldMap[name];
+    //     }
+    //     this.updated = {};
+    // }
 
     //================================
     // Static Methods
@@ -158,7 +162,7 @@ let nextId = 1;
 
 /** This is intended for debug use only. It gives a unique number for each instance created. There is no provision made
  * for wrapping of this number, and it should be used in a way where that doesn't matter. */
-function _getInstanceNumber() {
+function _createInstanceNumber() {
     return nextInstanceNumber++;
 }
 
