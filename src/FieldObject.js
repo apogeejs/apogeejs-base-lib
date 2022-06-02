@@ -66,12 +66,17 @@ export default class FieldObject {
     /** This method locks the object. On instantiation the object is unlocked and
      * fields can be set. Once it it locked the fields can not be changed. */
     lock() {
+        //this lets us take any desired actions before locking
+        if((this.beforeLock)&&(!this.isLocked)) this.beforeLock()
         this.isLocked = true;
     }
 
     getIsLocked() {
         return this.isLocked;
     }
+
+    //This method will be caleld before the object is locked, in case ny actions are desired
+    //beforeLock()
 
     /** This returns a map of the updated fields for this object.  */
     getUpdated() {
