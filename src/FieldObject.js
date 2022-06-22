@@ -102,7 +102,7 @@ export default class FieldObject {
 
     /** Thie method should be implemented for any object using this method. 
      * It identifies the type of object. */
-    getType() {
+    getFieldObjectType() {
         return this.objectType;
     }
 
